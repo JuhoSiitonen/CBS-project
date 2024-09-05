@@ -2,8 +2,10 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from django.views import generic
-from . import forms
+#from . import forms
 from django.utils import timezone
+from .models import Posting
+
 
 
 from .models import Posting
@@ -18,6 +20,12 @@ def mainpage(request):
 
 def new_posting(request):
     if request.method == 'POST':
+        new_posting = Posting()
+        new_posting.text = request.POST['text']
+        new_posting.user = request.user
+        new_posting.save()
+        return HttpResponseRedirect(reverse('mainpage'))
+        """
         form = forms.PostingForm(request.POST)
         if form.is_valid():
             new_posting = Posting()
@@ -26,6 +34,8 @@ def new_posting(request):
             new_posting.pub_date = timezone.now()
             new_posting.save()
             return HttpResponseRedirect(reverse('mainpage'))
-    else:
-        form = forms.PostingForm()
-    return render(request, 'pages/new_posting.html', {'form': form})
+        """
+    #else:
+        # form = forms.PostingForm()
+
+    #return render(request, 'pages/new_posting.html', {'form': form})
