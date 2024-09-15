@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Raspi forum</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <h2>Raspberry pi forum</h2>
+        <p>Welcome to the home page of the raspberry pi forum!</p>
+        <p>Here you can discuss anything related to the raspberry pi.</p>
+        <p>Feel free to ask questions, share your projects or help others with their projects.</p>
+        <p>Enjoy your stay!</p>
+
+        <h3>Latest posts</h3>
+        {% if latest_posting_list %}
+        <ul>
+            {% for posting in latest_posting_list %}
+                <li>{{ posting.text }}  likes {{ posting.likes }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p>No posts are available.</p>
+        {% endif %}
+    </body>
+</html>
