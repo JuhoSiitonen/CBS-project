@@ -21,5 +21,13 @@
         {% else %}
             <p>No posts are available.</p>
         {% endif %}
+
+        <h3>Post a new message</h3>
+        <form method="post">
+            {% csrf_token %}
+            <label for="text">Message:</label><br>
+            <textarea id="text" name="text" rows="4" cols="50"></textarea><br>
+            <button type="submit">Post</button>
+        </form>
     </body>
 </html>
