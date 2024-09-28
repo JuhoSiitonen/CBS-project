@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Raspi forum</title>
+    </head>
+    <body>
+        <h2>Raspberry pi forum</h2>
+
+        <h2>Topic</h2>
+        <h3>{{ posting.text}}</h3>
+        <p>Upvotes: {{ posting.likes }}</p>
+        <form action="{% url 'like' posting.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Like"/>
+        </form>
+
+        <h3>Post a new comment on the topic</h3>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p }} 
+            <button type="submit">Submit</button>
+        </form>
+
+        <h3>Comments</h3>
+        {% if comments %}
+        <ul>
+            {% for comment in comments %}
+                <li>{{ comment.text }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p>No comments yet.</p>
+        {% endif %}
+
+        <form action='logout/' method="POST">
+			{% csrf_token %}
+            <input type="submit" value="Logout"/>
+        </form>
+        <button onclick="location.href='/'">Main Page</button>
+    </body>
+</html>

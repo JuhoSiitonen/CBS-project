@@ -14,14 +14,14 @@
         {% if latest_posting_list %}
         <ul>
             {% for posting in latest_posting_list %}
-                <li>{{ posting.text }}  likes {{ posting.likes }}</li>
+                <li><a href="posting/{{ posting.id }}">{{ posting.text }}</a> upvotes {{ posting.likes }}</li>
             {% endfor %}
         </ul>
         {% else %}
             <p>No posts are available.</p>
         {% endif %}
 
-        <h3>Post a new message</h3>
+        <h3>Post a new forum topic</h3>
         <form method="POST" action="">
             {% csrf_token %}
             {{ form.as_p }} 
