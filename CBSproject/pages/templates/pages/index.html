@@ -22,11 +22,10 @@
         {% endif %}
 
         <h3>Post a new message</h3>
-        <form action="new/" method="post" >
+        <form method="POST" action="">
             {% csrf_token %}
-            <label for="text">Message:</label><br>
-            <textarea id="text" name="text" rows="4" cols="50"></textarea><br>
-            <input type="submit" value="text">
+            {{ form.as_p }}  <!-- Renders the form as paragraphs -->
+            <button type="submit">Submit</button>
         </form>
 
         <form action='logout/' method="POST">
