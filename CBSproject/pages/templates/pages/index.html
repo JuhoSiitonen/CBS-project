@@ -24,7 +24,7 @@
         <h3>Post a new message</h3>
         <form method="POST" action="">
             {% csrf_token %}
-            {{ form.as_p }}  <!-- Renders the form as paragraphs -->
+            {{ form.as_p }} 
             <button type="submit">Submit</button>
         </form>
 
