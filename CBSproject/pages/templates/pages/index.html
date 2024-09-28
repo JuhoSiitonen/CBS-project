@@ -2,7 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Raspi forum</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <h2>Raspberry pi forum</h2>
@@ -23,11 +22,16 @@
         {% endif %}
 
         <h3>Post a new message</h3>
-        <form method="post">
+        <form action="new/" method="post" >
             {% csrf_token %}
             <label for="text">Message:</label><br>
             <textarea id="text" name="text" rows="4" cols="50"></textarea><br>
-            <button type="submit">Post</button>
+            <input type="submit" value="text">
+        </form>
+
+        <form action='logout/' method="POST"></form>
+			{% csrf_token %}
+            <input type="submit" value="Logout"/>
         </form>
     </body>
 </html>

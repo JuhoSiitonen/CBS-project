@@ -24,7 +24,7 @@ def new_posting(request):
         new_posting.text = request.POST['text']
         new_posting.user = request.user
         new_posting.save()
-        return HttpResponseRedirect(reverse('mainpage'))
+        return HttpResponseRedirect(reverse('index'))
         """
         form = forms.PostingForm(request.POST)
         if form.is_valid():

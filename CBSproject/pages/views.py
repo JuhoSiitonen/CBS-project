@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse , HttpResponseRedirect 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from .models import Posting
 from django.urls import reverse
 
-
+@login_required
 def index(request):
     latest_posting_list = Posting.objects.order_by('likes')[:10]
     context = {'latest_posting_list': latest_posting_list}
