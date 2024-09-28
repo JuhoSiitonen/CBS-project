@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse , HttpResponseRedirect 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -11,10 +11,11 @@ def index(request):
     context = {'latest_posting_list': latest_posting_list}
     return render(request, 'pages/index.html', context)
 
+@login_required
 def new_posting(request):
     if request.method == 'POST':
         new_posting = Posting()
         new_posting.text = request.POST['text']
         new_posting.user = request.user
         new_posting.save()
-        return HttpResponseRedirect(reverse('index'))
+        return redirect('/')
