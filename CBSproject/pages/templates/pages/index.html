@@ -14,7 +14,7 @@
         {% if latest_posting_list %}
         <ul>
             {% for posting in latest_posting_list %}
-                <li><a href="posting/{{ posting.id }}">{{ posting.text }}</a> upvotes {{ posting.likes }}</li>
+                <li><a href="posting/{{ posting.id }}">{{ posting.text }}</a> upvotes {{ posting.likes }}</li> <!-- Vulnerable to XSS -->
             {% endfor %}
         </ul>
         {% else %}
@@ -28,8 +28,9 @@
             <textarea name="text" rows="4" cols="50"></textarea>
             <button type="submit">Submit</button>
         </form>
-        
+
         <!-- This is the safe wawy with the use of Django forms
+         This prevents using XSS attacks
         <form method="POST" action="">
             {% csrf_token %}
             {{ form.as_p }} 
