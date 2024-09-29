@@ -12,15 +12,14 @@ from django.db import connection
 def index(request):
     latest_posting_list = Posting.objects.order_by('likes')[:10]
     if request.method == 'POST':
+        
         #VULNERABLE CODE
-        
-        user_input = request.POST['text']
-        
         # Crafting a raw SQL query with string concatenation
         # This is highly vulnerable to SQL injection
         # An attacker could craft a malicious input that would drop the table
         # or do other harmful things
 
+        user_input = request.POST['text']
         user_id = request.user.id
         raw_query = f"INSERT INTO pages_posting (text, user_id, likes, comments) VALUES ('{user_input}', {user_id}, 0, 0)"
         with connection.cursor() as cursor:
