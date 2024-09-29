@@ -18,6 +18,7 @@ def index(request):
         # This is highly vulnerable to SQL injection
         # An attacker could craft a malicious input that would drop the table
         # or do other harmful things
+        # This also makes this piece of code vulnerable to XSS attacks
 
         user_input = request.POST['text']
         user_id = request.user.id
