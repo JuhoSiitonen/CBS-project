@@ -69,7 +69,7 @@ def posting(request, posting_id):
         }
     return render(request, 'pages/posting.html', context)
 
-#@login_required
+#@login_required !Access control missing!
 def like(request, posting_id):
     posting = Posting.objects.get(pk=posting_id)
     posting.likes += 1
