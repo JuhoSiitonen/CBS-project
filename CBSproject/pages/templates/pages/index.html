@@ -22,12 +22,20 @@
         {% endif %}
 
         <h3>Post a new forum topic</h3>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            <textarea name="text" rows="4" cols="50"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        
+        <!-- This is the safe wawy with the use of Django forms
         <form method="POST" action="">
             {% csrf_token %}
             {{ form.as_p }} 
             <button type="submit">Submit</button>
         </form>
-
+        -->
         <form action='logout/' method="POST">
 			{% csrf_token %}
             <input type="submit" value="Logout"/>
