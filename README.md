@@ -16,6 +16,8 @@ This will run a shell script which will create a database with two default users
 username: Juho   password: badpassword1234
 username: Pertsa password: badpassword1234
 
+## Vulnerabilities
+
 1. A1:2017-Injection
 [Vulnerable code segment](https://github.com/JuhoSiitonen/CBS-project/blob/8681984f882e1c74e884756496c19ffa59ca5a23/CBSproject/pages/views.py#L23)
 
