@@ -12,6 +12,8 @@ Vulnerabilities demonstrated in app are according to OWASP 2017 listing.
 To run the app you need to navigate to CBS-PROJECT/CBSproject folder and run the following command in:
 bash appsetup.sh
 
+If the setup script does not work it most likely due to Django not being installed. 
+
 This will run a shell script which will create a database with two default users. The usernames and their passwords are:
 username: Juho   password: badpassword1234
 username: Pertsa password: badpassword1234
