@@ -50,7 +50,7 @@ Within my project broken authentication presents itself as the lack of a check f
 To fix this vulnerability one would only need to uncomment the line to which the link point to within the code. Meaning the decorator which invokes the Django default login check middleware functionality. This could also be implemented with a custom middleware which checks the users privileges. 
 
 4. A7:2017-Cross-Site Scripting (XSS)
-[Direct use of user input]()
+[Direct use of user input](https://github.com/JuhoSiitonen/CBS-project/blob/c458ee76375cc7953e2169046f6df41394970ce0/CBSproject/pages/templates/pages/posting.html#L28)
 
 Cross-site scripting stands as the number seven on the OWASP 2017 list. According to OWASP it is the second most prevalent issue on the list. The vulnerability means that there is a way for an attacker to store unsanitized input which will be executed as a part of a victims HTML output.  
 
