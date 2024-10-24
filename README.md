@@ -12,6 +12,7 @@ Vulnerabilities demonstrated in app are according to OWASP 2017 listing.
 [Vulnerable code segment](https://github.com/JuhoSiitonen/CBS-project/blob/8681984f882e1c74e884756496c19ffa59ca5a23/CBSproject/pages/views.py#L23)
 
 Injection vulnerabilities are on the top of the 2017 OWASP list and for good reason. This specific vulnerability can have a malicious actor send in data which can cause data loss, corruption or leaking of sensitive data. Without proper preventative measures all the data within a services databases are at risk. 
+
 For my application the injection is in the form an SQL injection. The injection can happen because the user input is not properly sanitized. Within the code segment link provided you can see that the code uses a user input "text" directly and proceeds to even use the Django ORM model in a very bad way. The bad way being a raw SQL statement which inserts the unsanitized input to the database. This way of interacting with the user data can cause malicious actors to inject SQL code directly into the HTML text box. 
 The raw query which is run is not the easiest to inject as was with the course materials (e.g via a SELECT query with LIKE) but this is nevertheless a very careless way to interact with the users input and puts the services data in precarious situation.
 

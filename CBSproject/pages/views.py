@@ -18,10 +18,10 @@ def index(request):
         # This is highly vulnerable to SQL injection
         # An attacker could craft a malicious input that would drop the table
         # or do other harmful things
-        # This also makes this piece of code vulnerable to XSS attacks
 
         user_input = request.POST['text']
         user_id = request.user.id
+
         raw_query = f"INSERT INTO pages_posting (text, user_id, likes, comments) VALUES ('{user_input}', {user_id}, 0, 0)"
         with connection.cursor() as cursor:
             cursor.execute(raw_query)

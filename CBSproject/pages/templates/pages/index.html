@@ -14,7 +14,7 @@
         {% if latest_posting_list %}
         <ul>
             {% for posting in latest_posting_list %}
-                <li><a href="posting/{{ posting.id }}">{{ posting.text }}</a> upvotes {{ posting.likes }}</li> <!-- Vulnerable to XSS -->
+                <li><a href="posting/{{ posting.id }}">{{ posting.text|safe }}</a> upvotes {{ posting.likes }}</li> <!-- Vulnerable to XSS -->
             {% endfor %}
         </ul>
         {% else %}
